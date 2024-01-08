@@ -3,75 +3,132 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="R33 - Personal Portfolio Management Tool">
-  <meta name="keywords" content="R33, Portfolio Management, Cryptocurrency">
+  <meta name="description" content="R33 - Personal Crypto Portfolio Management">
+  <meta name="keywords" content="R33, Crypto, Portfolio Management">
   <meta name="author" content="Your Name">
-  <title>R3BALANC3</title>
-  <link href="styles/style.css" rel="stylesheet" type="text/css">
+  <title>R3BALANC3 | Manage Your Crypto Portfolio</title>
+  <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
   <header>
-    <nav>
-      <!-- Navigation Bar here -->
-    </nav>
+    <!-- Navigation Bar -->
   </header>
 
-  <main>
-    <section class="container">
-      <article>
-        <h1>Disclaimer</h1>
-        <p>R33 is a personal project developed for managing a personal portfolio. It's experimental, not intended for public use, and the creator is not responsible for issues like lost digital coins or technical glitches. The right to modify or discontinue R33 at any time is reserved.</p>
-      </article>
+  <main class="container">
+    <section>
+      <h1>Welcome to R33</h1>
+      <p><strong>Disclaimer:</strong> R33 is my personal project for crypto portfolio management. It's experimental and not for public use. I'm not liable for any losses or glitches. I may change or stop R33 anytime.</p>
 
-      <article>
-        <h2>System Features</h2>
-        <p>R33 engages in trading with up to 33 different pairs using the 1% liquidity pool of PEPE-LP (uni-v2) on swap.ogpepe.io. This strategy aids in the liquidity and stability of R33 and other projects, potentially increasing the overall portfolio value.</p>
-      </article>
+      <h2>What R33 Does</h2>
+      <p>R33 trades up to 33 pairs using the PEPE-LP pool on swap.ogpepe.io. It's about stabilizing R33 and boosting the portfolio's value.</p>
 
-      <article>
-        <h2>Fee Structure</h2>
-        <p>Includes a 1% pool fee for long-term liquidity and auto-compounding, and a 3% feeCollector for extracting value from the system.</p>
-      </article>
+      <h2>Fees Explained</h2>
+      <p>There's a 1% pool fee for liquidity providers, plus a 3% token transfer fee</p>
 
-      <article>
-        <h2>Token Introduction to Multiple Pools</h2>
-        <p>Introducing Token X into various liquidity pools on different exchanges or DeFi platforms, paired with assets like USDT, ETH, etc., creates a diverse ecosystem crucial for arbitrage opportunities.</p>
-      </article>
+      <h2>Arbitrage 101</h2>
+      <p>R33 goes into various pools, creating arbitrage opportunities. Bots play the price differences, I profit:</p>
+      <p>- 3% transfer fee on each transfer on R33 for me aka "feeCollector".</p>
+      <p>- 1% pool fee on each hop performed on R33 Pepe LP pairs.</p>
 
-      <article>
-        <h2>Monitoring Price Differences</h2>
-        <p>Monitoring the price of Token X across pools is essential. Arbitrage opportunities arise from noticeable price differences between pools.</p>
-      </article>
+      <h2>Pool Types</h2>
+      <p>Three pool types: Stablecoins, volatile coins, and my personal picks (aka the meme coins).</p>
+      <p>- Stablecoins: USDC, WBTC, ETH. Goal 100 R33 liquidity each, 30% supply</p>
+      <p>- Volatile coins, but stable and underperforming for testing strategies: Something like UNI, 1INCH, DEXT... </p>
+      <p>- Meme coins, the name says it all, this is next level risky</p>
 
-      <article>
-        <h2>Executing Arbitrage Trades</h2>
-        <p>Arbitrageurs or bots buy Token X in cheaper pools and sell in higher-priced pools. The profit is the price difference minus transaction and transfer fees.</p>
-      </article>
+      <h2>WARNING: My Strategy</h2>
+      <p>- The goal is to accumulate WBTC, ETH and USDC. To achieve that, I will craft a combination of R33 pairs which might help me achieve that goal, or might make me loose everything</p>
+      <p>- To accomplish the goal, once I have added enough pairs and liquidity, I will start selling and adding more liquidity in the R33 WBTC, ETH and USDC pairs</p>
+      <p>- You can expect a downward pressure on the price of R33 because that's the initial goal to build liquidity</p>
+      <p>- You can be losing 6-10% per trade due to fees, so don't trade this token, this is targeted at automated market maker bots.</p>
+      <p>- No expectations can be had from me, only I am expected to profit from R33 through rebalancing my portfolio</p>
+      <h2>I leave the code below. I encourage you to deploy your own token and build your own portfolio, try different fees and portfolio combinations.</h2>
 
-      <article>
-        <h2>3% Transfer Fee</h2>
-        <p>A 3% fee is applied to every transfer, collected by the FeeCollector on all transactions.</p>
-      </article>
 
-      <article>
-        <h2>Arbitrage Bots and Fee Calculation</h2>
-        <p>Arbitrage bots exploit price differences across pools, incurring standard liquidity pool fees plus the 3% transfer fee.</p>
-      </article>
-
-      <article>
-        <h2>Profitability Calculation for Arbitrage Bots</h2>
-        <p>For profitability, the price difference must exceed 5% (2% in trading fees and 3% in transfer fees, which are kept by the R33 ecosystem)</p>
-      </article>
-
-      <article>
-        <h2>Long-Term Strategy and Testing</h2>
-        <p>This experimental approach requires ongoing testing and adjustment to assess its viability and profitability in the face of market risks.</p>
-      </article>
+      <pre class="code-box">
+        // SPDX-License-Identifier: MIT
+        pragma solidity ^0.8.20;
+        
+        import "@openzeppelin/contracts@5.0.1/token/ERC20/ERC20.sol";
+        
+        /*
+         ____ ____ ____                               
+        ||R |||3 |||3 ||                              
+        ||__|||__|||__||                              
+        |/__\|/__\|/__\|                              
+         ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+        ||R |||3 |||B |||A |||L |||A |||N |||C |||3 ||
+        ||__|||__|||__|||__|||__|||__|||__|||__|||__||
+        |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+                                                      
+        Disclaimer:
+        R33 is a personal project I've developed for managing my own portfolio. It's not intended for public use and is an experimental tool, not a professional financial instrument. I cannot provide support or take responsibility for issues such as lost digital coins or technical glitches. Furthermore, I reserve the right to modify or discontinue R33 at any time without prior notice.
+        For insights into how R33 functions for portfolio rebalancing, feel free to visit https://r3balanc3.com / https://github.com/R3BALANC3
+        System Features:
+        R33 engages in trading with up to 33 different pairs using the 1% liquidity pool of PEPE-LP (uni-v2) on swap.ogpepe.io
+        Fee Structure:
+        1% pool fee: Long-term liquidity and auto-compounding within the pool.
+        3% feeCollector: primary method for extracting value from the system.
+        This strategy not only contributes to the stability of R33 but also aids in the liquidity and stability of other projects. Ultimately, this approach is designed to potentially increase the overall value of the portfolio and contribute to multiple projects simultaneously.
+                                                    
+        */
+        contract R3BALANC3 is ERC20 {
+            address public feeCollector;
+            uint256 public feePercent = 3;
+        
+            constructor() ERC20("R3BALANC3", "R33") {
+                _mint(msg.sender, 1000 * 10**decimals());
+                feeCollector = 0x80609b849f7B290427434Ed9811988cE6dF2838D;
+            }
+        
+            function transfer(address recipient, uint256 amount)
+                public
+                override
+                returns (bool)
+            {
+                uint256 fee = (amount * feePercent) / 100;
+                uint256 amountAfterFee = amount - fee;
+        
+                _transfer(_msgSender(), feeCollector, fee);
+                _transfer(_msgSender(), recipient, amountAfterFee);
+        
+                return true;
+            }
+        
+            function transferFrom(
+                address sender,
+                address recipient,
+                uint256 amount
+            ) public override returns (bool) {
+                uint256 fee = (amount * feePercent) / 100;
+                uint256 amountAfterFee = amount - fee;
+        
+                _transfer(sender, feeCollector, fee);
+                _transfer(sender, recipient, amountAfterFee);
+        
+                _approve(
+                    sender,
+                    _msgSender(),
+                    allowance(sender, _msgSender()) - amount
+                );
+        
+                return true;
+            }
+        
+            function setFeeCollector(address newCollector) public {
+                require(
+                    msg.sender == feeCollector,
+                    "Only the fee collector can change this"
+                );
+                feeCollector = newCollector;
+            }
+        }
+            </pre>
     </section>
   </main>
 
   <footer>
-    <!-- Footer content here -->
+    <!-- Footer content -->
   </footer>
 </body>
 </html>

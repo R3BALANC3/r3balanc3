@@ -15,3 +15,22 @@ h1 {
   font-size: 3em;
   margin: 0; /* Removes default margin from h1 */
 }
+
+
+.code-box {
+  background-color: #f4f4f4; /* Light grey background */
+  border: 1px solid #ddd; /* Light grey border */
+  border-left: 3px solid #f36d33; /* Thick left border for emphasis */
+  color: #666; /* Dark grey text color */
+  page-break-inside: avoid;
+  font-family: monospace; /* Monospaced font for code */
+  font-size: 1em; /* Regular font size */
+  line-height: 1.6; /* Spacing between lines */
+  margin-bottom: 1.6em; /* Space below the box */
+  max-width: 100%; /* Maximum width */
+  overflow: auto; /* Add scrollbars if necessary */
+  padding: 1em 1.5em; /* Padding inside the box */
+  display: block; /* Ensure it's a block element */
+  word-wrap: break-word; /* Ensures words wrap and don't break layout */
+  white-space: pre-wrap; /* Wrap white-space */
+}
