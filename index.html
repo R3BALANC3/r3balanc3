@@ -78,7 +78,7 @@
         
             constructor() ERC20("R3BALANC3", "R33") {
                 _mint(msg.sender, 1000 * 10**decimals());
-                feeCollector = 0x80609b849f7B290427434Ed9811988cE6dF2838D;
+                feeCollector = msg.sender;
             }
         
             function transfer(address recipient, uint256 amount)
